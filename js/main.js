@@ -29,6 +29,26 @@
         } 
     });
     
+
+    // Whatsapp order
+    const phoneNumber = "918304817938";
+
+document.querySelectorAll(".order-btn").forEach(button => {
+    button.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const productName = this.getAttribute("data-name");
+        const productPrice = this.getAttribute("data-price");
+
+        const message = `Hello, I would like to order:\n\nProduct: ${productName}\nPrice: ${productPrice}`;
+
+        const encodedMessage = encodeURIComponent(message);
+
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+        window.open(whatsappURL, "_blank");
+    });
+});
     
    // Back to top button
    $(window).scroll(function () {
